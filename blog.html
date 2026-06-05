@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog — The Quiet Stack</title>
+  <meta name="description" content="Browse long-form articles and opinion pieces on technology, productivity, lifestyle, and calmer digital habits.">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-brand" href="index.html" aria-label="The Quiet Stack home">
+        <span class="brand-mark" aria-hidden="true">QS</span>
+        <span>The Quiet Stack</span>
+      </a>
+
+      <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="index.html">Home</a></li>
+          <li><a class="nav-link" href="blog.html" aria-current="page">Blog</a></li>
+          <li class="dropdown">
+            <button class="dropdown-toggle" type="button" aria-expanded="false" aria-controls="categories-menu" data-dropdown-toggle>
+              Categories
+              <svg class="dropdown-icon" viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M5.5 7.5 10 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </button>
+            <ul class="dropdown-menu" id="categories-menu" hidden>
+              <li><a href="blog.html?category=technology">Technology</a></li>
+              <li><a href="blog.html?category=productivity">Productivity</a></li>
+              <li><a href="blog.html?category=lifestyle">Lifestyle</a></li>
+              <li><a href="blog.html?category=opinion">Opinion</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link" href="about.html">About</a></li>
+          <li><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" aria-label="Toggle dark theme" data-theme-toggle>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3a1 1 0 0 1 1 1v1.25a1 1 0 1 1-2 0V4a1 1 0 0 1 1-1Zm0 14.75a5.75 5.75 0 1 0 0-11.5 5.75 5.75 0 0 0 0 11.5Zm8-6.75a1 1 0 0 1 1 1 1 1 0 0 1-1 1h-1.25a1 1 0 1 1 0-2H20ZM5.25 12a1 1 0 0 1-1 1H3a1 1 0 1 1 0-2h1.25a1 1 0 0 1 1 1Zm12.78-7.03a1 1 0 0 1 1.41 1.41l-.88.89a1 1 0 0 1-1.42-1.42l.89-.88ZM6.86 16.73a1 1 0 0 1 0 1.42l-.89.88a1 1 0 0 1-1.41-1.41l.88-.89a1 1 0 0 1 1.42 0Zm12.58.89a1 1 0 0 1-1.41 1.41l-.89-.88a1 1 0 0 1 1.42-1.42l.88.89ZM5.97 4.97l.89.88a1 1 0 0 1-1.42 1.42l-.88-.89a1 1 0 0 1 1.41-1.41Z" fill="currentColor"></path>
+          </svg>
+        </button>
+        <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="site-nav" aria-expanded="false" data-menu-toggle>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-eyebrow">Archive</p>
+          <h1>Blog</h1>
+          <p class="lede">Long-form essays and opinion pieces about technology, productivity, lifestyle, and the quieter choices behind better work.</p>
+        </div>
+
+        <div class="filters" aria-label="Blog filters">
+          <form class="search-form" role="search" data-search-form>
+            <div class="form-field">
+              <label for="post-search">Search posts</label>
+              <div class="search-row">
+                <input id="post-search" name="q" type="search" placeholder="Search by title, topic, or category" data-post-search>
+                <button class="btn btn-secondary" type="submit">Search</button>
+              </div>
+            </div>
+            <p class="search-status" role="status" aria-live="polite" data-search-status>Showing all posts.</p>
+          </form>
+
+          <div>
+            <p class="filter-heading">Filter by category</p>
+            <div class="tag-list" data-category-filters aria-label="Category filters">
+              <button class="filter-button is-active" type="button" data-filter="all">All</button>
+              <button class="filter-button" type="button" data-filter="technology">Technology</button>
+              <button class="filter-button" type="button" data-filter="productivity">Productivity</button>
+              <button class="filter-button" type="button" data-filter="lifestyle">Lifestyle</button>
+              <button class="filter-button" type="button" data-filter="opinion">Opinion</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="posts-heading">
+      <div class="container layout-with-sidebar">
+        <div class="content-stack">
+          <div class="section-header">
+            <p class="section-eyebrow">All posts</p>
+            <h2 id="posts-heading">Read the archive</h2>
+          </div>
+
+          <div class="post-list" data-post-list>
+            <article class="post-card horizontal" id="post-slower" data-post data-title="The case for slower software" data-categories="technology productivity opinion" data-excerpt="A practical argument for tools that ask less of our attention while helping us do deeper more deliberate work">
+              <img class="post-card-image" src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=800&q=80" alt="Abstract architectural forms in soft neutral tones">
+              <div class="post-card-body">
+                <div class="post-meta">
+                  <span>Technology</span>
+                  <span>9 min read</span>
+                  <span>May 28, 2026</span>
+                </div>
+                <h3 class="post-card-title"><a href="#post-slower">The case for slower software</a></h3>
+                <p class="post-card-excerpt">The best tools do not always move fastest. Sometimes they give us room to notice what matters before the next notification arrives.</p>
+                <ul class="tag-list" aria-label="Post categories">
+                  <li><a class="tag" href="blog.html?category=technology">Technology</a></li>
+                  <li><a class="tag" href="blog.html?category=productivity">Productivity</a></li>
+                  <li><a class="tag" href="blog.html?category=opinion">Opinion</a></li>
+                </ul>
+                <section class="author-card" aria-labelledby="author-slower">
+                  <div class="author-profile">
+                    <img class="author-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=240&q=80" alt="Portrait of blog author Rowan Vale">
+                    <div>
+                      <h4 class="author-name" id="author-slower">Rowan Vale</h4>
+                      <p class="author-role">Writer on calm technology</p>
+                    </div>
+                  </div>
+                  <p>Rowan writes about digital tools, attention, and practical ways to make everyday systems more humane.</p>
+                </section>
+                <div class="social-share" aria-label="Share The case for slower software">
+                  <span class="social-share-title">Share:</span>
+                  <button class="share-button" type="button" data-share="x">X</button>
+                  <button class="share-button" type="button" data-share="linkedin">LinkedIn</button>
+                  <button class="share-button" type="button" data-share="copy">Copy link</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="post-card horizontal" id="post-review" data-post data-title="A weekly review for people who dislike systems" data-categories="productivity lifestyle" data-excerpt="A low friction ritual for closing loops choosing priorities and avoiding the trap of maintaining your method instead of your life">
+              <img class="post-card-image" src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80" alt="Open notebook with pen on a simple writing desk">
+              <div class="post-card-body">
+                <div class="post-meta">
+                  <span>Productivity</span>
+                  <span>7 min read</span>
+                  <span>May 16, 2026</span>
+                </div>
+                <h3 class="post-card-title"><a href="#post-review">A weekly review for people who dislike systems</a></h3>
+                <p class="post-card-excerpt">A low-friction ritual for closing loops, choosing priorities, and avoiding the trap of maintaining your method instead of your life.</p>
+                <ul class="tag-list" aria-label="Post categories">
+                  <li><a class="tag" href="blog.html?category=productivity">Productivity</a></li>
+                  <li><a class="tag" href="blog.html?category=lifestyle">Lifestyle</a></li>
+                </ul>
+                <section class="author-card" aria-labelledby="author-review">
+                  <div class="author-profile">
+                    <img class="author-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=240&q=80" alt="Portrait of blog author Rowan Vale">
+                    <div>
+                      <h4 class="author-name" id="author-review">Rowan Vale</h4>
+                      <p class="author-role">Independent writer</p>
+                    </div>
+                  </div>
+                  <p>Rowan tests routines in ordinary weeks, then keeps only the parts that reduce friction without becoming another job.</p>
+                </section>
+                <div class="social-share" aria-label="Share A weekly review for people who dislike systems">
+                  <span class="social-share-title">Share:</span>
+                  <button class="share-button" type="button" data-share="x">X</button>
+                  <button class="share-button" type="button" data-share="linkedin">LinkedIn</button>
+                  <button class="share-button" type="button" data-share="copy">Copy link</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="post-card horizontal" id="post-phone" data-post data-title="What I keep off my phone" data-categories="lifestyle technology opinion" data-excerpt="A short inventory of apps habits and decisions that make a pocket computer feel less like a pocket casino">
+              <img class="post-card-image" src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=800&q=80" alt="Phone resting face down beside a cup of coffee">
+              <div class="post-card-body">
+                <div class="post-meta">
+                  <span>Lifestyle</span>
+                  <span>6 min read</span>
+                  <span>May 2, 2026</span>
+                </div>
+                <h3 class="post-card-title"><a href="#post-phone">What I keep off my phone</a></h3>
+                <p class="post-card-excerpt">A short inventory of apps, habits, and decisions that make a pocket computer feel less like a pocket casino.</p>
+                <ul class="tag-list" aria-label="Post categories">
+                  <li><a class="tag" href="blog.html?category=lifestyle">Lifestyle</a></li>
+                  <li><a class="tag" href="blog.html?category=technology">Technology</a></li>
+                  <li><a class="tag" href="blog.html?category=opinion">Opinion</a></li>
+                </ul>
+                <section class="author-card" aria-labelledby="author-phone">
+                  <div class="author-profile">
+                    <img class="author-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=240&q=80" alt="Portrait of blog author Rowan Vale">
+                    <div>
+                      <h4 class="author-name" id="author-phone">Rowan Vale</h4>
+                      <p class="author-role">Essayist on digital life</p>
+                    </div>
+                  </div>
+                  <p>Rowan is interested in small defaults: the settings, shelves, and boundaries that quietly shape a day.</p>
+                </section>
+                <div class="social-share" aria-label="Share What I keep off my phone">
+                  <span class="social-share-title">Share:</span>
+                  <button class="share-button" type="button" data-share="x">X</button>
+                  <button class="share-button" type="button" data-share="linkedin">LinkedIn</button>
+                  <button class="share-button" type="button" data-share="copy">Copy link</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="post-card horizontal" id="post-advice" data-post data-title="The productivity advice I stopped giving" data-categories="productivity opinion" data-excerpt="Not every problem needs a system some need a conversation a boundary or the courage to disappoint a calendar">
+              <img class="post-card-image" src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=800&q=80" alt="Planner, pen, and laptop arranged neatly on a tabletop">
+              <div class="post-card-body">
+                <div class="post-meta">
+                  <span>Opinion</span>
+                  <span>8 min read</span>
+                  <span>April 18, 2026</span>
+                </div>
+                <h3 class="post-card-title"><a href="#post-advice">The productivity advice I stopped giving</a></h3>
+                <p class="post-card-excerpt">Not every problem needs a system. Some need a conversation, a boundary, or the courage to disappoint a calendar.</p>
+                <ul class="tag-list" aria-label="Post categories">
+                  <li><a class="tag" href="blog.html?category=productivity">Productivity</a></li>
+                  <li><a class="tag" href="blog.html?category=opinion">Opinion</a></li>
+                </ul>
+                <section class="author-card" aria-labelledby="author-advice">
+                  <div class="author-profile">
+                    <img class="author-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=240&q=80" alt="Portrait of blog author Rowan Vale">
+                    <div>
+                      <h4 class="author-name" id="author-advice">Rowan Vale</h4>
+                      <p class="author-role">Writer and editor</p>
+                    </div>
+                  </div>
+                  <p>Rowan writes opinion pieces for people who want sustainable work more than perfectly optimized dashboards.</p>
+                </section>
+                <div class="social-share" aria-label="Share The productivity advice I stopped giving">
+                  <span class="social-share-title">Share:</span>
+                  <button class="share-button" type="button" data-share="x">X</button>
+                  <button class="share-button" type="button" data-share="linkedin">LinkedIn</button>
+                  <button class="share-button" type="button" data-share="copy">Copy link</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="post-card horizontal" id="post-ai" data-post data-title="Using AI without outsourcing your taste" data-categories="technology productivity opinion" data-excerpt="A measured look at where generative tools help where they flatten judgment and how to keep your own standards in the loop">
+              <img class="post-card-image" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Laptop showing abstract code reflections in a dim workspace">
+              <div class="post-card-body">
+                <div class="post-meta">
+                  <span>Technology</span>
+                  <span>10 min read</span>
+                  <span>April 4, 2026</span>
+                </div>
+                <h3 class="post-card-title"><a href="#post-ai">Using AI without outsourcing your taste</a></h3>
+                <p class="post-card-excerpt">A measured look at where generative tools help, where they flatten judgment, and how to keep your own standards in the loop.</p>
+                <ul class="tag-list" aria-label="Post categories">
+                  <li><a class="tag" href="blog.html?category=technology">Technology</a></li>
+                  <li><a class="tag" href="blog.html?category=productivity">Productivity</a></li>
+                  <li><a class="tag" href="blog.html?category=opinion">Opinion</a></li>
+                </ul>
+                <section class="author-card" aria-labelledby="author-ai">
+                  <div class="author-profile">
+                    <img class="author-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=240&q=80" alt="Portrait of blog author Rowan Vale">
+                    <div>
+                      <h4 class="author-name" id="author-ai">Rowan Vale</h4>
+                      <p class="author-role">Technology essayist</p>
+                    </div>
+                  </div>
+                  <p>Rowan approaches new tools with curiosity, skepticism, and a strong preference for keeping human judgment visible.</p>
+                </section>
+                <div class="social-share" aria-label="Share Using AI without outsourcing your taste">
+                  <span class="social-share-title">Share:</span>
+                  <button class="share-button" type="button" data-share="x">X</button>
+                  <button class="share-button" type="button" data-share="linkedin">LinkedIn</button>
+                  <button class="share-button" type="button" data-share="copy">Copy link</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="post-card horizontal" id="post-home" data-post data-title="The home screen as a personal policy" data-categories="lifestyle productivity" data-excerpt="Your first screen is a tiny constitution for your attention here is how to rewrite it without turning your life into a project">
+              <img class="post-card-image" src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=800&q=80" alt="Minimal living room with warm light and clean shelves">
+              <div class="post-card-body">
+                <div class="post-meta">
+                  <span>Lifestyle</span>
+                  <span>5 min read</span>
+                  <span>March 21, 2026</span>
+                </div>
+                <h3 class="post-card-title"><a href="#post-home">The home screen as a personal policy</a></h3>
+                <p class="post-card-excerpt">Your first screen is a tiny constitution for your attention. Here is how to rewrite it without turning your life into a project.</p>
+                <ul class="tag-list" aria-label="Post categories">
+                  <li><a class="tag" href="blog.html?category=lifestyle">Lifestyle</a></li>
+                  <li><a class="tag" href="blog.html?category=productivity">Productivity</a></li>
+                </ul>
+                <section class="author-card" aria-labelledby="author-home-screen">
+                  <div class="author-profile">
+                    <img class="author-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=240&q=80" alt="Portrait of blog author Rowan Vale">
+                    <div>
+                      <h4 class="author-name" id="author-home-screen">Rowan Vale</h4>
+                      <p class="author-role">Observer of everyday systems</p>
+                    </div>
+                  </div>
+                  <p>Rowan believes the smallest interfaces often reveal the clearest truths about what we are practicing every day.</p>
+                </section>
+                <div class="social-share" aria-label="Share The home screen as a personal policy">
+                  <span class="social-share-title">Share:</span>
+                  <button class="share-button" type="button" data-share="x">X</button>
+                  <button class="share-button" type="button" data-share="linkedin">LinkedIn</button>
+                  <button class="share-button" type="button" data-share="copy">Copy link</button>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="empty-state" data-empty-state>
+            <h3>No posts found</h3>
+            <p>Try a broader search term or choose a different category.</p>
+          </div>
+
+          <section class="newsletter-inline" aria-labelledby="archive-newsletter-title">
+            <div>
+              <p class="section-eyebrow">Newsletter</p>
+              <h2 id="archive-newsletter-title">Get new essays without checking another feed.</h2>
+              <p class="muted">Twice a month, Rowan sends a thoughtful note with one essay, a few useful links, and no urgency theatre.</p>
+            </div>
+            <form class="newsletter-form" data-newsletter-form>
+              <div class="form-field">
+                <label for="archive-email">Email address</label>
+                <input id="archive-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+              </div>
+              <button class="btn btn-primary" type="submit">Subscribe</button>
+              <p class="form-status" role="status" aria-live="polite"></p>
+            </form>
+          </section>
+        </div>
+
+        <aside class="sidebar" aria-label="Blog sidebar">
+          <section class="newsletter-card prominent" aria-labelledby="sidebar-newsletter-title">
+            <p class="section-eyebrow">Reader letter</p>
+            <h2 id="sidebar-newsletter-title">A quieter inbox can still be interesting.</h2>
+            <p class="muted">Join readers who want fewer updates, better links, and essays that reward a second cup of coffee.</p>
+            <form class="newsletter-form" data-newsletter-form>
+              <div class="form-field">
+                <label for="sidebar-email">Email address</label>
+                <input id="sidebar-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+              </div>
+              <button class="btn btn-primary" type="submit">Join the list</button>
+              <p class="form-status" role="status" aria-live="polite"></p>
+            </form>
+          </section>
+
+          <section class="sidebar-card" aria-labelledby="category-title">
+            <h2 id="category-title">Categories</h2>
+            <ul class="category-list">
+              <li><a class="category-pill" href="blog.html?category=technology">Technology</a></li>
+              <li><a class="category-pill" href="blog.html?category=productivity">Productivity</a></li>
+              <li><a class="category-pill" href="blog.html?category=lifestyle">Lifestyle</a></li>
+              <li><a class="category-pill" href="blog.html?category=opinion">Opinion</a></li>
+            </ul>
+          </section>
+
+          <section class="author-card" aria-labelledby="blog-author-title">
+            <div class="author-profile">
+              <img class="author-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=240&q=80" alt="Portrait of blog author Rowan Vale">
+              <div>
+                <h2 class="author-name" id="blog-author-title">Rowan Vale</h2>
+                <p class="author-role">Independent writer</p>
+              </div>
+            </div>
+            <p>Rowan writes practical essays about choosing tools, shaping attention, and building a life with fewer invisible defaults.</p>
+            <a class="btn btn-text" href="about.html">About the author</a>
+          </section>
+
+          <section class="sidebar-card" aria-labelledby="popular-title">
+            <h2 id="popular-title">Popular themes</h2>
+            <ul class="footer-list">
+              <li><a href="blog.html?category=technology">Sustainable technology</a></li>
+              <li><a href="blog.html?category=productivity">Weekly planning</a></li>
+              <li><a href="blog.html?category=lifestyle">Digital boundaries</a></li>
+              <li><a href="blog.html?category=opinion">Opinion essays</a></li>
+            </ul>
+          </section>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a class="site-brand" href="index.html">
+          <span class="brand-mark" aria-hidden="true">QS</span>
+          <span>The Quiet Stack</span>
+        </a>
+        <p>A minimal personal blog about technology, productivity, and lifestyle choices that make room for deeper attention.</p>
+      </div>
+
+      <div class="footer-columns">
+        <section class="footer-column" aria-labelledby="footer-pages">
+          <h2 id="footer-pages">Pages</h2>
+          <ul class="footer-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </section>
+
+        <section class="footer-column" aria-labelledby="footer-categories">
+          <h2 id="footer-categories">Categories</h2>
+          <ul class="footer-list">
+            <li><a href="blog.html?category=technology">Technology</a></li>
+            <li><a href="blog.html?category=productivity">Productivity</a></li>
+            <li><a href="blog.html?category=lifestyle">Lifestyle</a></li>
+            <li><a href="blog.html?category=opinion">Opinion</a></li>
+          </ul>
+        </section>
+
+        <section class="footer-column" aria-labelledby="footer-start">
+          <h2 id="footer-start">Start here</h2>
+          <ul class="footer-list">
+            <li><a href="blog.html">Latest posts</a></li>
+            <li><a href="blog.html?category=productivity">Humane productivity</a></li>
+            <li><a href="contact.html">Pitch a question</a></li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 The Quiet Stack. All rights reserved.</span>
+        <span>Built for slow reading and small screens.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
